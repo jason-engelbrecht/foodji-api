@@ -1,3 +1,1 @@
-class Recipe {
-
-}
+//TODO Mongoose (Mongo) or Sequelize (SQL)?
