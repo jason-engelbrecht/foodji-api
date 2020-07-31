@@ -1,12 +1,22 @@
+import mongoose from "mongoose";
 import { dbConfig } from "../config/db_config";
 
 export default class Service {
-    connectionPool;
 
     constructor() {
-        if (new.target === Service) {
+        if(new.target === Service) {
             throw new TypeError("Cannot construct Abstract instances directly");
         }
-        //TODO connect to DB, establish pool
+        this._connectToDB();
+    }
+
+    _connectToDB() {
+        mongoose.connect(dbConfig.uri, dbConfig.options);
+
+        const db = mongoose.connection;
+        db.on('error', console.error.bind(console, 'connection error: '));
+        db.once('open', () => {
+            console.log("Connected!")
+        });
     }
 }

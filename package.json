@@ -13,8 +13,8 @@
     "node": "12.x"
   },
   "scripts": {
-    "start": "node src/util/esm.js",
-    "dev": "nodemon src/util/esm.js"
+    "start": "node src/util/esm_setup.js",
+    "dev": "nodemon src/util/esm_setup.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -23,6 +23,7 @@
     "esm": "^3.2.25",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "mongoose": "^5.9.26",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.2"
   }

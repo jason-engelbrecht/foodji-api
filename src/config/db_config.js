@@ -1,4 +1,5 @@
 export const
     dbConfig = {
-        //TODO decide on DB, setup (Azure?)
+        uri: 'mongodb://localhost:27017/foodji',
+        options: {useNewUrlParser: true, useUnifiedTopology: true }
     };

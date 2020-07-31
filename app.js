@@ -3,7 +3,7 @@ import createError from "http-errors";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
-import indexRoutes from "./src/routes/index";
+import indexController from "./src/controllers/index_controller";
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-app.use('/', indexRoutes);
+app.use('/', indexController);
 
 //catch 404 and forward to error handler
 app.use((req, res, next) => {
