@@ -10,6 +10,11 @@ export default class Service {
         this._connectToDB();
     }
 
+    handleError(err, message, callback) {
+        console.error(message);
+        callback(err, message);
+    }
+
     _connectToDB() {
         mongoose.connect(dbConfig.uri, dbConfig.options);
 
