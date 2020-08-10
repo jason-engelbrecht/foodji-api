@@ -11,7 +11,7 @@ export default class Service {
     }
 
     logError(err, message) {
-        console.error({err: err, message: message});
+        console.error({error: err, message: message});
     }
 
     _connectToDB() {

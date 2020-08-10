@@ -16,15 +16,14 @@ export default class UserService extends Service {
             if (err) {
                 this.logError(err, 'Error hashing password');
                 callback(err);
-                return;
+            } else {
+                userData.password = hashedPassword;
+                const user = new User(userData);
+                user.save((err) => {
+                    if (err) this.logError(err, 'Error saving user');
+                    callback(err);
+                });
             }
-
-            userData.password = hashedPassword;
-            const user = new User(userData);
-            user.save((err) => {
-                if (err) this.logError(err, 'Error saving user');
-                callback(err);
-            });
         });
     }
 }

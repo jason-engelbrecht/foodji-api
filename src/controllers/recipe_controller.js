@@ -8,7 +8,7 @@ router.post('/post', (req, res) => {
     const recipeData = req.body;
     recipeService.postRecipe(recipeData, (err, recipe) => {
         if (err) res.status(500).send({message: 'Error posting recipe'});
-        res.send(recipe);
+        else res.send(recipe);
     });
 });
 
