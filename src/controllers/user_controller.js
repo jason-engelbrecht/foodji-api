@@ -6,11 +6,8 @@ const userService = new UserService();
 
 router.post('/register', (req, res) => {
     const userData = req.body;
-    userService.registerUser(userData, (err, message) => {
-        if (err) {
-            res.status(500).send({message: message});
-            return;
-        }
+    userService.registerUser(userData, (err) => {
+        if (err) res.status(500).send({message: 'Error registering user'});
         res.sendStatus(200);
     });
 });

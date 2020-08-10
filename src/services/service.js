@@ -4,15 +4,14 @@ import { dbConfig } from "../config/db_config";
 export default class Service {
 
     constructor() {
-        if(new.target === Service) {
+        if (new.target === Service) {
             throw new TypeError("Cannot construct Abstract instances directly");
         }
         this._connectToDB();
     }
 
-    handleError(err, message, callback) {
-        console.error(message);
-        callback(err, message);
+    logError(err, message) {
+        console.error({err: err, message: message});
     }
 
     _connectToDB() {
