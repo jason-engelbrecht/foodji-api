@@ -13,14 +13,14 @@ export default class UserService extends Service {
         const errMessage = 'Error registering user';
         const saltRounds = 12;
 
-        bcrypt.hash(userData.password, saltRounds, (err, hash) => {
+        bcrypt.hash(userData.password, saltRounds, (err, hashedPassword) => {
             if (err) return this.handleError(err, errMessage, callback);
 
-            userData.password = hash;
+            userData.password = hashedPassword;
             const user = new User(userData);
             user.save((err) => {
                 if (err) this.handleError(err, errMessage, callback);
-                console.log('User saved');
+                console.log('User saved: ' + user);
                 callback();
             });
         });
