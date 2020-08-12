@@ -15,4 +15,9 @@ export default class RecipeService extends Service {
             callback(err, recipe);
         });
     }
+
+    async getAllRecipes() {
+        const recipes = await Recipe.find({});
+        return recipes;
+    }
 }

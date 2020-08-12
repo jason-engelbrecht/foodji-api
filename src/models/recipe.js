@@ -17,11 +17,11 @@ const recipeSchema = new mongoose.Schema({
         instruction: String
     }],
     category: {
-        category_id: mongoose.Types.ObjectId,
+        category_id: String,
         category_name: String,
     },
     owner: {
-        user_id: mongoose.Types.ObjectId,
+        user_id: String,
         display_name: String,
     }
 });

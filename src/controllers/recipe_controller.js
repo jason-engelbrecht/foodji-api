@@ -12,4 +12,9 @@ router.post('/post', (req, res) => {
     });
 });
 
+router.get('/all', (req, res) => {
+    recipeService.getAllRecipes()
+        .then(recipes => res.send(recipes))
+});
+
 export default router;

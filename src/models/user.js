@@ -8,19 +8,19 @@ const userSchema = new mongoose.Schema({
     date_created: {type: Date, default: Date.now},
     favorite_dish: {type: String, default: null},
     favorite_categories: [{
-        category_id: mongoose.Types.ObjectId,
+        category_id: String,
         category_name: String
     }],
     saved_recipes: [{
-        recipe_id: mongoose.Types.ObjectId,
+        recipe_id: String,
         title: String
     }],
     followers: [{
-        user_id: mongoose.Types.ObjectId,
+        user_id: String,
         display_name: String
     }],
     following: [{
-        user_id: mongoose.Types.ObjectId,
+        user_id: String,
         display_name: String
     }]
 });
